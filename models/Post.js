@@ -4,12 +4,20 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    author: {
+        type: String,
+        required: true,
+    },
     sum: {
         type: String,
         required: true
     },
     filename: {
         type: 'string'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 
 });

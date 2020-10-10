@@ -6,9 +6,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="/main/new">Upload</a>
             <a class="nav-item nav-link" href="#">Q&A</a>
+            <a class="nav-item nav-link" href="/logout">logout</a>
 
         </div>
     </div>
@@ -21,16 +22,16 @@
 <%- include("_messages") %>
 <form  class ="card" action="/main/new" method="post" enctype="multipart/form-data">
 <div class="form-group mb-2">
-    <label for="post-title" class="sr-only">Title</label>
+    <label for="post-title" class="font-weight-bold">Title</label>
     <input class="form-control" id="post-title" required type="text" placeholder="Enter the title of the post" name="title">
 </div>
 <div class="form-group mb-2">
-    <label for="summary" class="sr-only">Title</label>
+    <label for="summary" class="font-weight-bold" >Summary</label>
     <textarea class="form-control" name="sum" id="summary" required rows="5"></textarea>
     </div>
-</div>
-<div class="form-group">
-    <label for="res-doc">Attach the resoure doc</label>
+
+<div class="form-group mb-2 d-flex flex-row justify-content-center">    
+    <label for="res-doc" class="font-weight-bold">Attach the resoure doc</label>
     <input required name="file" type="file" class="form-control-file" id="res-doc">
 </div>
 <div class="d-flex flex-row justify-content-center">

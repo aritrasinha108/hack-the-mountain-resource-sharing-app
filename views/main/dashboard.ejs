@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"><img width="50" height="50" src="/img/logo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/main">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/main/new">Upload</a>
+            <a class="nav-item nav-link" href="#">Q&A</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+
+        </div>
+    </div>
+</nav>
+
+<br><br>
+<h1 class="mt-4 text-center font-weight-bold">Dashboard</h1>
+<div class="container mt-20">
+    
+<% posts.forEach((post)=>{ %>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">-by <%= post.author %><br> <%= post.createdAt %></h6>
+        <p class="card-text"><%= post.sum %></p>
+        <a href="#" class="card-link">Resources</a>
+        
+    </div>
+</div>
+
+
+<% }) %>
+
+
+</div>

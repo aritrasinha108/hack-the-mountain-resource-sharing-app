@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../utils/fileStore');
 const Posts = require('../models/Post');
-router.get('/', (req, res) => {
-    res.render('dashboard', { user: req.user });
+router.get('/', async (req, res) => {
+    let posts = await Posts.find({});
+
+    res.render('main/dashboard', { user: req.user, posts: posts });
 });
 router.get('/new', (req, res) => {
     res.render('main/new', { user: req.user });
@@ -12,6 +14,7 @@ router.post('/new', upload.single('file'), (req, res) => {
     let newPost = new Posts({
         title: req.body.title,
         sum: req.body.sum,
+        author: req.user.name,
         file: req.file.filename
     });
     newPost.save().then(post => {
