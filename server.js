@@ -34,7 +34,6 @@ app.use((req, res, next) => {
 });
 
 //Routes
-
 app.get('/', (req, res) => {
     res.render('auth/welcome');
 });
@@ -48,16 +47,4 @@ app.get('/dashboard', ensureAuthenticated, (req, res) => {
 
 app.use('/q&a',require('./routes/quesAndAns'))
 app.use('/users', require('./routes/users'));
-
-// // app.use("/api/files", require('./config/auth'));
-// app.use("/api/files", ensureAuthenticated, require("./routes/files"));//this is for uploading the file to the database 
-
-// // app.use('/files', require('./config/auth'));
-// app.use('/files', ensureAuthenticated, require('./routes/show')); //this is for rendering the download page if the file is found in the database 
-
-// // app.use('/files/download', require('./config/auth'))
-// app.use('/files/download', ensureAuthenticated, require('./routes/download'))//this is the link for dwnloading the file at the download button 
-
-
-// app.use('/api/files')
 app.listen(PORT, () => console.log("The server started runnig on port 3000"));
