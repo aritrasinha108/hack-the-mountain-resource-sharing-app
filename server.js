@@ -34,6 +34,7 @@ app.use((req, res, next) => {
 });
 
 //Routes
+
 app.get('/', (req, res) => {
     res.render('auth/welcome');
 });
@@ -45,7 +46,7 @@ app.get('/dashboard', ensureAuthenticated, (req, res) => {
     res.render('dashboard', { name: req.user.name })
 });
 
-
+app.use('/q&a',require('./routes/quesAndAns'))
 app.use('/users', require('./routes/users'));
 
 // // app.use("/api/files", require('./config/auth'));
