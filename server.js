@@ -1,0 +1,62 @@
+const express = require("express");
+const path = require('path')
+const app = express();
+const expressLayout = require('express-ejs-layouts');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+require('./config/passport')(passport);
+const connectionDB = require("./config/db");
+const PORT = process.env.PORT || 3000;
+
+app.use(express.static('public'));
+//Template engine 
+app.set('views', path.join(__dirname, '/views'))
+app.use(expressLayout);
+app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+connectionDB();
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("success_msg");
+    res.locals.error_msg = req.flash("error_msg");
+    res.locals.error = req.flash("error");
+    next();
+});
+
+//Routes
+app.get('/', (req, res) => {
+    res.render('auth/welcome');
+});
+const ensureAuthenticated = require('./config/auth');
+
+
+
+app.get('/dashboard', ensureAuthenticated, (req, res) => {
+    res.render('dashboard', { name: req.user.name })
+});
+
+
+app.use('/users', require('./routes/users'));
+
+// // app.use("/api/files", require('./config/auth'));
+// app.use("/api/files", ensureAuthenticated, require("./routes/files"));//this is for uploading the file to the database 
+
+// // app.use('/files', require('./config/auth'));
+// app.use('/files', ensureAuthenticated, require('./routes/show')); //this is for rendering the download page if the file is found in the database 
+
+// // app.use('/files/download', require('./config/auth'))
+// app.use('/files/download', ensureAuthenticated, require('./routes/download'))//this is the link for dwnloading the file at the download button 
+
+
+// app.use('/api/files')
+app.listen(PORT, () => console.log("The server started runnig on port 3000"));
