@@ -6,13 +6,40 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Upload doc</a>
-            <a class="nav-item nav-link active" href="/q&a">Q&A</a>
+
             
+
+            <a class="nav-item nav-link active" href="/main">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/main/new">Upload</a>
+            <a class="nav-item nav-link" href="/q&a">Q&A</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+
+
         </div>
     </div>
 </nav>
 
+
 <h1 class="mt-4">Dashboard</h1>
 <p class="lead mb-3">Welcome <%= name %>!!!</p>
 <a href="/users/logout" class="btn btn-secondary">Logout</a>
+<br><br>
+<h1 class="mt-4 text-center font-weight-bold">Dashboard</h1>
+<div class="container mt-20">
+    
+<% posts.forEach((post)=>{ %>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">-by <%= post.author %><br> <%= post.createdAt %></h6>
+        <p class="card-text"><%= post.sum %></p>
+        <a href="#" class="card-link">Resources</a>
+        
+    </div>
+</div>
+
+
+<% }) %>
+
+
+</div>

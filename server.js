@@ -46,5 +46,9 @@ app.get('/dashboard', ensureAuthenticated, (req, res) => {
 });
 
 app.use('/q&a',require('./routes/quesAndAns'))
+app.use('/main', ensureAuthenticated, require('./routes/main'));
+// app.get('/main', ensureAuthenticated, (req, res) => {
+//     res.render('dashboard', { name: req.user.name })
+// });
 app.use('/users', require('./routes/users'));
 app.listen(PORT, () => console.log("The server started runnig on port 3000"));
