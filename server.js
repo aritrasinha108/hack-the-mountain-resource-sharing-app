@@ -38,6 +38,14 @@ app.get('/', (req, res) => {
     res.render('auth/welcome');
 });
 const ensureAuthenticated = require('./config/auth');
+
+
+
+app.get('/dashboard', ensureAuthenticated, (req, res) => {
+    res.render('main/dashboard', { name: req.user.name })
+});
+
+app.use('/q&a',require('./routes/quesAndAns'))
 app.use('/main', ensureAuthenticated, require('./routes/main'));
 app.use('/docs', ensureAuthenticated, docRouter);
 app.use('/users', require('./routes/users'));
