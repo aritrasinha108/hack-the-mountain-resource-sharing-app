@@ -29,14 +29,12 @@ router.get('/:docname', async (req, res) => {
             }
             let myfile = files[0];
 
-            if (myfile.contentType === 'application/pdf' || myfile.contentType === 'image/png' || myfile.contentType === 'image/jpeg' || myile.contentType === 'image/jpg') {
 
-                gfs.openDownloadStreamByName(req.params.docname).pipe(res);
-            } else {
-                res.status(404).json({
-                    err: 'Invalid Extension...'
-                });
-            }
+
+            gfs.openDownloadStreamByName(req.params.docname).pipe(res);
+
+
+
 
         });
 

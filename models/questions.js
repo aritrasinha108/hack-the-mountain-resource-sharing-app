@@ -10,6 +10,7 @@ const questionSchema = new Schema({
     user: { type: String, required: true },
     question: { type: String, required: true },
     answers: [answerSchema],
+    tags: [String],
     createdAt: {
         type: Date,
         default: Date.now
