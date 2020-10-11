@@ -116,6 +116,27 @@ router.post('/:id&:comment', async (req, res) => {
     }
 
 });
+router.post('/search', async (req, res) => {
+    const tags = req.body.tags.split(' ');
+    console.log(tags);
+    reqPosts = [];
+    const posts = await Posts.find({});
+    tags.forEach(t => {
+        t = t.toUpperCase();
+        posts.forEach(p => {
+            if (reqPosts.findIndex(r => r == p) == -1 && p.tags.findIndex(tag => tag == t) != -1)
+                reqPosts.push(p);
+        })
+
+
+    })
+    // console.log("reqPosts:" + reqPosts);
+    res.render('main/dashboard', { user: req.user, posts: reqPosts });
+
+
+
+
+})
 
 
 

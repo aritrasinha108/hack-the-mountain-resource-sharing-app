@@ -53,4 +53,25 @@ router.post('/answers/:id&:comment', async (req, res) => {
     }
 
 });
+router.post('/search', async (req, res) => {
+    const tags = req.body.tags.split(' ');
+    console.log(tags);
+    reqPosts = [];
+    const questions = await Questions.find({});
+    tags.forEach(t => {
+        t = t.toUpperCase();
+        questions.forEach(q => {
+            if (reqPosts.findIndex(r => r == q) == -1 && q.tags.findIndex(tag => tag == t) != -1)
+                reqPosts.push(q);
+        })
+
+
+    })
+    // console.log("reqPosts:" + reqPosts);
+    res.render('main/q&a', { user: req.user, questions: reqPosts });
+
+
+
+
+})
 module.exports = router;

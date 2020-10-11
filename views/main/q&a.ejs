@@ -56,6 +56,14 @@
 <h1 class="text-center font-weight-bold">
   Questions
 </h1>
+<form action="/qna/search" method="POST"class="form-inline">
+
+  <div class="form-group mr-10 ml-10">
+    
+    <input class="form-control form-control-lg" type="text" placeholder="Search here for fields.." name="tags" >
+  </div>
+  <button type="submit" class="btn btn-success">Search</button>
+</form>
 <% questions.forEach((q)=>{ %>
 <div class="card my-5" style="box-shadow:10px 10px 5px black;" data-id="<%= q.id %>">
   <div class="card-body">
