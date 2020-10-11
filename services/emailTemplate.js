@@ -7,12 +7,7 @@ module.exports = ({ emailFrom, downloadLink, size, expires }) => {
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>Simple Transactional Email</title>
                 <style>
-                /* -------------------------------------
-                    INLINED WITH htmlemail.io/inline
-                ------------------------------------- */
-                /* -------------------------------------
-                    RESPONSIVE AND MOBILE FRIENDLY STYLES
-                ------------------------------------- */
+                
                 @media only screen and (max-width: 620px) {
                 table[class=body] h1 {
                     font-size: 28px !important;
@@ -115,7 +110,7 @@ module.exports = ({ emailFrom, downloadLink, size, expires }) => {
                                 <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                                     <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi there,</p>
                                     <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><b>${emailFrom}</b> has shared a file with you.</p>
-                                    <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">${size} in total ・ Expires in ${expires}</p>
+                                    
                                     <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                                     <tbody>
                                         <tr>
@@ -131,7 +126,7 @@ module.exports = ({ emailFrom, downloadLink, size, expires }) => {
                                         </tr>
                                     </tbody>
                                     </table>
-                                    <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you for using Among Share service.</p>
+                                    <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you for using RSVP service.</p>
                                     <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Good luck! Hope it works.</p>
                                 </td>
                                 </tr>
@@ -147,14 +142,12 @@ module.exports = ({ emailFrom, downloadLink, size, expires }) => {
                         <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                             <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Among share </span>
-<!-- Link for the live url -->     <br> Want to share a file? <a href="http://localhost:3000" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">inShare</a>.
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">RSVP</span>
+<!-- Link for the live url -->     <br> Want to share a file? <a href="http://localhost:3000" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">RSVP</a>.
                             </td>
                             </tr>
                             <tr>
-                            <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                Powered by <a href="https://www.hackthemountin.com" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">HACK THE MOUNTAIN</a>.
-                            </td>
+                            
                             </tr>
                         </table>
                         </div>

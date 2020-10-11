@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer')
 
-SendMail = async ({ from, to, subject, text, html }) => {
+SendMail = async ({ to, subject, text, html }) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -10,7 +10,7 @@ SendMail = async ({ from, to, subject, text, html }) => {
     });
 
     let info = await transporter.sendMail({
-        from: `Among Share <${from}>`,
+        from: `RSVP <${process.env.MAIL_USER}>`,
         to: to,
         subject: subject,
         text: text,

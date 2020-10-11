@@ -60,6 +60,14 @@
                                         onclick="showComments(event)" style="margin: 5px 5px;"><%= post.comments.length %></i>
                                 
                                 </div>
+                                <div class=" like-unlike">
+                                
+                                    <i class="fa fa-comments comment-button" id="comment-button-<%=post.id %>" data-id="<%= post.id %>"
+                                        onclick="showComments(event)" style="margin: 5px 5px;"><%= post.comments.length %></i>
+                                        <i class="fas fa-envelope-square send-mail-button" id="send-button-<%=post.id %>" data-id="<%= post.id %>"
+                                        onclick="sendMail(event)" style="margin: 5px 5px;"></i>
+                                
+                                </div>
                                 
         </div>
     </div>

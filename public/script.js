@@ -166,3 +166,21 @@ function addAnswers(event) {
     xhr.send(formData);
 
 }
+function sendMail(event) {
+    console.log("sending mail");
+    const id = event.target.getAttribute("data-id");
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', `/main/sendmail/${id}`, true);
+    xhr.onreadystatechange = function () {
+        var response = JSON.parse(this.responseText);
+        alert(response.message);
+
+
+    }
+    var formData = new FormData();
+    // let comment = document.getElementById(id).value;
+    formData.append("id", id);
+    xhr.send(formData);
+
+}

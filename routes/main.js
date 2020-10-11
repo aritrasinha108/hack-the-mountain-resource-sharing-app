@@ -4,6 +4,9 @@ const upload = require('../utils/fileStore');
 const Posts = require('../models/Post').Posts;
 const Voter = require('../models/Post').Voters;
 const Comments = require('../models/Post').Comments;
+const sendMail = require('../services/emailService');
+const Post = require('../models/Post');
+
 router.get('/', async (req, res) => {
     let posts = await Posts.find({});
     console.log(posts);
@@ -136,8 +139,27 @@ router.post('/search', async (req, res) => {
 
 
 
-})
+});
 
+router.post('/sendmail/:id', async (req, res) => {
+    const id = req.params.id;
+    let post = await Posts.findById(id);
+    let link = `${process.env.baseurl}/docs/${post.filename}`;
+    console.log(link);
+    await sendMail({
+        to: req.user.email, subject: 'File request', text: 'Do not reply', html: require('../services/emailTemplate')(
+            {
+                emailFrom: process.env.MAIL_USER,
+                downloadLink: link
+            }
+        )
+    });
+    res.json({
+        status: "success",
+        message: "Mail sent succesfully..."
+    });
+
+})
 
 
 
