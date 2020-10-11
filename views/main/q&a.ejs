@@ -1,14 +1,23 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/"><img width="50" height="50" src="/img/security.png" alt=""></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light w-100" style="box-shadow: 20px 20px 10px black;">
+    <a class="navbar-brand" href="/"><img width="80" height="80" src="/img/logo.png" alt=""></a>
+
+
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#">Upload doc</a>
-            <a class="nav-item nav-link active" href="#">Q&A</a>
-            
+
+
+
+            <a class="nav-item nav-link active" href="/main">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/main/new">Upload</a>
+            <a class="nav-item nav-link" href="/qna">Q&A</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+
+
         </div>
     </div>
 </nav>
@@ -16,19 +25,41 @@
 <%- include("_messages") %>
 
 <h2 class="text-center my-3">The Q & A section </h2>
-<form method="POST" action="/q&a">
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Name</label>
-      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your name" name="name" required>
-    </div>
-   
+<div class="container" style="box-shadow: 10px 10px 5px black;">
+<form method="POST" action="/qna">
+     
    
     
     <div class="form-group">
       <label for="exampleFormControlTextarea1">Enter your doubt here</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="question" required></textarea>
     </div>
-    <div class="d-flex align-self-center">
+    <div class="d-flex align-self-center flex-row justify-content-around">
+        <a href="/main/" class="btn btn-danger"> Cancel</a>
         <button type="submit" class="btn btn-success align-center">Submit</button>
     </div>
   </form>
+  <br>
+</div>
+<br>
+<br>
+<div class="container" >
+<h1 class="text-center font-weight-bold">
+  Questions
+</h1>
+<% questions.forEach((q)=>{ %>
+<div class="card my-5" style="box-shadow:10px 10px 5px black;" data-id="<%= q.id %>">
+  <div class="card-body">
+    <h5 class="card-title font-weight-bold"><%= q.question %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">-by <%= q.user %><br> <%= q.createdAt %></h6>
+    
+    
+  </div>
+</div>
+
+
+<% }) %>
+
+
+</div> <br>
+

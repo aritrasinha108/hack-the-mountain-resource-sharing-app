@@ -1,16 +1,20 @@
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
 const { schema } = require("./Users");
-const Schema=mongoose.Schema;
-const answerSchema=new Schema({
-    ans:{type:String,required:true},
-    user:{type:String, required:true}
+const Schema = mongoose.Schema;
+const answerSchema = new Schema({
+    ans: { type: String, required: true },
+    user: { type: String, required: true }
 });
-const answers=mongoose.model('Answers',answerSchema); 
-const questionSchema=new Schema({
-    user:{type:String,required:true},
-    question:{type:String,required:true},
-    answers:[answerSchema]
+const answers = mongoose.model('Answers', answerSchema);
+const questionSchema = new Schema({
+    user: { type: String, required: true },
+    question: { type: String, required: true },
+    answers: [answerSchema],
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
 });
 
-const questions=mongoose.model('Question',questionSchema)
-module.exports={questions,answers};
+const questions = mongoose.model('Question', questionSchema)
+module.exports = { questions, answers };

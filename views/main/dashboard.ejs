@@ -1,10 +1,9 @@
-<<<<<<< HEAD
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100" style="box-shadow: 20px 20px 10px black;">
     <a class="navbar-brand" href="/"><img width="80" height="80" src="/img/logo.png" alt=""></a>
-=======
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/dashboard"><img width="50" height="50" src="/img/logo.png" alt=""></a>
->>>>>>> 6550ecde6f68cbd7324c31e024958bbaa4041582
+
+
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -16,7 +15,7 @@
 
             <a class="nav-item nav-link active" href="/main">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="/main/new">Upload</a>
-            <a class="nav-item nav-link" href="/q&a">Q&A</a>
+            <a class="nav-item nav-link" href="/qna">Q&A</a>
             <a class="nav-item nav-link" href="/logout">Logout</a>
 
 
@@ -25,10 +24,7 @@
 </nav>
 
 
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= name %>!!!</p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
-<br><br>
+
 <h1 class="mt-4 text-center font-weight-bold">Dashboard</h1>
 <div class="container mt-20">
     
@@ -38,19 +34,19 @@
         <h5 class="card-title font-weight-bold"><%= post.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted">-by <%= post.author %><br> <%= post.createdAt %></h6>
         <p class="card-text text-center font-italic"><%= post.sum %></p>
-        <!-- <a href="docs/down/<%=post.filename %>" target="_blank" class="card-link">Resources</a> -->
+        <!-- <a href="docs/<%=post.filename %>" target="_blank" class="card-link">Resources</a> -->
         <div class="d-flex flex-row" id="like-unlike-btn">
             <a href="/docs/<%=post.filename %>" target="_blank" class="card-link text-center mr-10">Resources</a>
                                 <div class="like-unlike mr-10">
                                     <i class="fa fa-thumbs-up upvote-button" data-id="<%= post.id %>" style="margin:5px 5px"
                                         data-index="1">
-                                       0
+                                       <%= post.likes %>
                                     </i>
                                 </div>
                                 <div class=" like-unlike mr-10">
                                     <i class="fa fa-thumbs-down downvote-button" style="margin:5px 5px" data-id="<%=post.id %>"
                                         data-index="1">
-                                        0
+                                        <%= post.dislikes %>
                                     </i>
                                 </div>
         </div>
