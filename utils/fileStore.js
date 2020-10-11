@@ -2,7 +2,7 @@ const crypto = require('crypto');
 const path = require('path');
 const multer = require('multer');
 const GridFsStorage = require('multer-gridfs-storage');
-// const {mongoURI1,mongoURI2}=require('../config');
+
 
 var storage = new GridFsStorage({
   url: process.env.URI2,

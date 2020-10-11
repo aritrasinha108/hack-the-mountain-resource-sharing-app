@@ -8,7 +8,7 @@ const passport = require('passport');
 require('./config/passport')(passport);
 const connectionDB = require("./config/db");
 const PORT = process.env.PORT || 3000;
-
+const docRouter = require('./routes/docs')
 app.use(express.static('public'));
 //Template engine 
 app.set('views', path.join(__dirname, '/views'))
@@ -39,8 +39,6 @@ app.get('/', (req, res) => {
 });
 const ensureAuthenticated = require('./config/auth');
 app.use('/main', ensureAuthenticated, require('./routes/main'));
-// app.get('/main', ensureAuthenticated, (req, res) => {
-//     res.render('dashboard', { name: req.user.name })
-// });
+app.use('/docs', ensureAuthenticated, docRouter);
 app.use('/users', require('./routes/users'));
 app.listen(PORT, () => console.log("The server started runnig on port 3000"));

@@ -4,7 +4,8 @@ const upload = require('../utils/fileStore');
 const Posts = require('../models/Post');
 router.get('/', async (req, res) => {
     let posts = await Posts.find({});
-
+    console.log(posts);
+    Posts.deleteMany()
     res.render('main/dashboard', { user: req.user, posts: posts });
 });
 router.get('/new', (req, res) => {
@@ -15,7 +16,7 @@ router.post('/new', upload.single('file'), (req, res) => {
         title: req.body.title,
         sum: req.body.sum,
         author: req.user.name,
-        file: req.file.filename
+        filename: req.file.filename
     });
     newPost.save().then(post => {
         console.log("post: " + post);

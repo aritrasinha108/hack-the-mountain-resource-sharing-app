@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow:10px 10px 5px black;">
     <a class="navbar-brand" href="/"><img width="50" height="50" src="/img/logo.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
     NEW POST
 </h1>
 <%- include("_messages") %>
-<form  class ="card" action="/main/new" method="post" enctype="multipart/form-data">
+<form  class ="container"style="box-shadow:10px 10px 5px black;" action="/main/new" method="post" enctype="multipart/form-data">
 <div class="form-group mb-2">
     <label for="post-title" class="font-weight-bold">Title</label>
     <input class="form-control" id="post-title" required type="text" placeholder="Enter the title of the post" name="title">
@@ -41,3 +41,4 @@
 </div>
 
 </form>
+<br>
