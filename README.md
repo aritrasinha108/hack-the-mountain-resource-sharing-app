@@ -1,6 +1,6 @@
 # Resource Sharing Virtual Platform (RSVP)
 
-![](public\img\logo.png)
+<img src="https://w7.pngwing.com/pngs/205/757/png-transparent-two-men-shaking-hands-illustration-training-professional-icon-businessman-handshake-people-public-relations-hands.png" width="400" height="400" />
 
 ## _Brief Overview_
 
