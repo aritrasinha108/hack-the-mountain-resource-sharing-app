@@ -15,6 +15,9 @@ A all in one platform where authenticated users can access and share resources r
 - Get your doubts cleared
 
 ## _Challanges Faced_
+* Authentication via passport.js
+* File storage using multer in mongoDb 
+* Adding Like and Comment functionality 
 
 ## _Tech Stack Used_
 
@@ -22,9 +25,14 @@ A all in one platform where authenticated users can access and share resources r
 - Express.js
 - Passport.js (Authentication)
 - MongoDb Atlas
+- Multer
+- Grid-fs
+- AJAX
+- Nodemailer
+
 ## Screenshots
-* Register <br><img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/1.jpeg"  width="700" height="500">
-* Login<br> <img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/2.jpeg"  width="700" height="500">
-* Dashboard <br><img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/3.jpeg"  width="700" height="500">
-* New Post<br> <img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/4.jpeg"  width="700" height="500">
-* Q & A <br><img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/5.jpeg"  width="700" height="500">
+####  **Register** <br><img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/1.jpeg"  width="700" height="500">
+####  **Login** <br> <img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/2.jpeg"  width="700" height="500">
+####  **Dashboard** <br><img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/3.jpeg"  width="700" height="500">
+####  **New Post** <br> <img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/4.jpeg"  width="700" height="500">
+####  **Q & A** <br><img src="https://github.com/aritrasinha108/hack-the-mountain-resource-sharing-app/blob/main/screenshots/5.jpeg"  width="700" height="500">
