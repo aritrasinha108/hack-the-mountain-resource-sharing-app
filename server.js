@@ -42,7 +42,7 @@ const ensureAuthenticated = require('./config/auth');
 
 
 app.get('/dashboard', ensureAuthenticated, (req, res) => {
-    res.render('dashboard', { name: req.user.name })
+    res.render('main/dashboard', { name: req.user.name })
 });
 
 app.use('/q&a',require('./routes/quesAndAns'))
